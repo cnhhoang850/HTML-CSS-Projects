@@ -1,0 +1,99 @@
+$shadow-color: #000000;
+
+body {
+  background-color: #fff;
+  padding: 4em;
+}
+*[class*="shadow"] {
+  background-color: #efefef;
+  float: left;
+  width: 72px;
+  height: 72px;
+  margin: 0 24px 24px 0;
+}
+.circle {
+  padding-top: 0;
+}
+
+// Natural Shadow Styles
+// ------------------------------
+
+// These natural shadows contain two shadow layers of varying opacity to create a mass shadow and a defining depth shadow. These shadows are based on the specifications of Google's material design spcifications at https://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
+
+*[class*="shadow"][class*="natural"] {
+  @include box-shadow(
+    0 1px 1.5px 0 rgba($shadow-color, 0.12),
+    0 1px 1px 0 rgba($shadow-color, 0.24)
+  );
+  &[class*="-z2"] {
+    @include box-shadow(
+      0 3px 3px 0 rgba($shadow-color, 0.16),
+      0 3px 3px 0 rgba($shadow-color, 0.23)
+    );
+  }
+  &[class*="-z3"] {
+    @include box-shadow(
+      0 10px 10px 0 rgba($shadow-color, 0.19),
+      0 6px 3px 0 rgba($shadow-color, 0.23)
+    );
+  }
+  &[class*="-z4"] {
+    @include box-shadow(
+      0 14px 14px 0 rgba($shadow-color, 0.25),
+      0 10px 5px 0 rgba($shadow-color, 0.22)
+    );
+  }
+  &[class*="-z5"] {
+    @include box-shadow(
+      0 19px 19px 0 rgba($shadow-color, 0.3),
+      0 15px 6px 0 rgba($shadow-color, 0.22)
+    );
+  }
+  &[class*="inset"] {
+    @include box-shadow(
+      inset 0 1px 1.5px 0 rgba($shadow-color, 0.12),
+      inset 0 1px 1px 0 rgba($shadow-color, 0.24)
+    );
+    &[class*="-z2"] {
+      @include box-shadow(
+        inset 0 3px 3px 0 rgba($shadow-color, 0.16),
+        inset 0 3px 3px 0 rgba($shadow-color, 0.23)
+      );
+    }
+    &[class*="-z3"] {
+      @include box-shadow(
+        inset 0 10px 10px 0 rgba($shadow-color, 0.19),
+        inset 0 6px 3px 0 rgba($shadow-color, 0.23)
+      );
+    }
+    &[class*="-z4"] {
+      @include box-shadow(
+        inset 0 14px 14px 0 rgba($shadow-color, 0.25),
+        inset 0 10px 5px 0 rgba($shadow-color, 0.22)
+      );
+    }
+    &[class*="-z5"] {
+      @include box-shadow(
+        inset 0 19px 19px 0 rgba($shadow-color, 0.3),
+        inset 0 15px 6px 0 rgba($shadow-color, 0.22)
+      );
+    }
+  }
+}
+
+// Simple Shadow Styles
+// ------------------------------
+
+// These shadows that I have used for some time now seemed pretty neat to use for images in layout. They are not compeltely plain because the spread was customized to only show on the bottom of the element. However, compared to the natural shadows above they look kind of funny.
+.shadow {
+  @include box-shadow(0px 10px 10px -9px rgba($shadow-color, 1));
+  margin-bottom: 30px;
+}
+.shadow3 {
+  @extend .shadow;
+  @include box-shadow(0px 10px 10px -9px rgba($shadow-color, 0.75));
+}
+.shadow6 {
+  @extend .shadow;
+  @include box-shadow(0px 10px 10px -9px rgba($shadow-color, 0.5));
+}

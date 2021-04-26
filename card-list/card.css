@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: gray;
+    color: white;
+    font-family: 'DM Mono', monospace;
+}
+
+.card_list {
+    display: flex;
+    flex-direction: row;
+    padding: 100px;
+    overflow-x: scroll;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 350px;
+    width: 400px;
+    min-width: 250px;
+    border-radius: 16px;
+    background: white;
+    transition: 0.2s ease-out;
+    color:black
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 16px;
+    /*dreamy shadow by layering more, less opacity*/
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.2),
+    0 15px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.2),
+    0 25px 30px rgba(0, 0, 0, 0.2); 
+    transition:  0.2s ease-out;
+  }
+
+.card:hover {
+    transform: translateY(-1rem)
+}
+
+.card:hover::after{
+    opacity: 1;
+}
+
+
